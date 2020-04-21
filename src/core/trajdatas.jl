@@ -33,7 +33,7 @@ function Trajdata(trajdata::Trajdata, frame_lo::Int, frame_hi::Int)
         end
     end
 
-    frames = Array(TrajdataFrame, frame_hi - frame_lo + 1)
+    frames = Array{TrajdataFrame}(frame_hi - frame_lo + 1)
     Δstate_index = trajdata.frames[frame_lo].lo - 1
     for (i,frame) in enumerate(trajdata.frames[frame_lo : frame_hi])
         frames[i] = TrajdataFrame(frame.lo - Δstate_index, frame.hi - Δstate_index, frame.t)
@@ -99,7 +99,7 @@ function Base.read(io::IO, ::Type{Trajdata}, roadway::Roadway=Roadway())
     end
 
     N = parse(Int, advance!())
-    states = Array(TrajdataState, N)
+    states = Array{TrajdataState}(N)
     for i in 1 : N
         line = advance!()
         cleanedline = replace(line, r"(\(|\))", "")
@@ -120,7 +120,7 @@ function Base.read(io::IO, ::Type{Trajdata}, roadway::Roadway=Roadway())
     end
 
     N = parse(Int, advance!())
-    frames = Array(TrajdataFrame, N)
+    frames = Array{TrajdataFrame}(N)
     for i in 1:N
         tokens = split(advance!(), ' ')
         lo = parse(Int, tokens[1])

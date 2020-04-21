@@ -3,7 +3,7 @@ type Scene
     n_vehicles::Int
 
     function Scene(n_vehicles::Int=500)
-        vehicles = Array(Vehicle, n_vehicles)
+        vehicles = Array{Vehicle}(n_vehicles)
         for i in 1 : length(vehicles)
             vehicles[i] = Vehicle()
         end

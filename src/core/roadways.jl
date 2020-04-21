@@ -177,11 +177,11 @@ function Base.read(io::IO, ::Type{Roadway})
     end
 
     nsegs = parse(Int, advance!())
-    roadway = Roadway(Array(RoadSegment, nsegs))
+    roadway = Roadway(Array{RoadSegment}(nsegs))
     for i_seg in 1:nsegs
         segid = parse(Int, advance!())
         nlanes = parse(Int, advance!())
-        seg = RoadSegment(segid, Array(Lane, nlanes))
+        seg = RoadSegment(segid, Array{Lane}(nlanes))
         for i_lane in 1:nlanes
             @assert(i_lane == parse(Int, advance!()))
             tag = LaneTag(segid, i_lane)
@@ -205,7 +205,7 @@ function Base.read(io::IO, ::Type{Roadway})
             end
 
             npts = parse(Int, advance!())
-            curve = Array(CurvePt, npts)
+            curve = Array{CurvePt}(npts)
             for i_pt in 1:npts
                 line = advance!()
                 cleanedline = replace(line, r"(\(|\))", "")

@@ -120,15 +120,15 @@ function gen_stadium_roadway(nlanes::Int;
     C = VecE2(0.0, width + radius)
     D = VecE2(0.0, radius)
 
-    seg1 = RoadSegment(1, Array(Lane, nlanes))
-    seg2 = RoadSegment(2, Array(Lane, nlanes))
-    seg3 = RoadSegment(3, Array(Lane, nlanes))
-    seg4 = RoadSegment(4, Array(Lane, nlanes))
+    seg1 = RoadSegment(1, Array{Lane}(nlanes))
+    seg2 = RoadSegment(2, Array{Lane}(nlanes))
+    seg3 = RoadSegment(3, Array{Lane}(nlanes))
+    seg4 = RoadSegment(4, Array{Lane}(nlanes))
     for i in 1 : nlanes
-        curvepts1 = Array(CurvePt, ncurvepts_per_turn)
-        curvepts2 = Array(CurvePt, ncurvepts_per_turn)
-        curvepts3 = Array(CurvePt, ncurvepts_per_turn)
-        curvepts4 = Array(CurvePt, ncurvepts_per_turn)
+        curvepts1 = Array{CurvePt}(ncurvepts_per_turn)
+        curvepts2 = Array{CurvePt}(ncurvepts_per_turn)
+        curvepts3 = Array{CurvePt}(ncurvepts_per_turn)
+        curvepts4 = Array{CurvePt}(ncurvepts_per_turn)
 
         r = radius + lane_width*(i-1)
         for j in 1:ncurvepts_per_turn
