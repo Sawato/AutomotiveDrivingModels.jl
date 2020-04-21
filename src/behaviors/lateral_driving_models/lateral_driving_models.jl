@@ -3,7 +3,7 @@ export
         ProportionalLaneTracker,
         track_lane!
 
-abstract LateralDriverModel
+abstract type LateralDriverModel end
 get_name(::LateralDriverModel) = "???"
 reset_hidden_state!(model::LateralDriverModel) = model # do nothing by default
 observe!(model::LateralDriverModel, scene::Scene, roadway::Roadway, egoid::Int) = model  # do nothing by default

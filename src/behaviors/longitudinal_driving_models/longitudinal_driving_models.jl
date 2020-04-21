@@ -6,7 +6,7 @@ export
         PrincetonLongitudinalDriver,
         track_longitudinal!
 
-abstract LongitudinalDriverModel
+abstract type LongitudinalDriverModel end
 get_name(::LongitudinalDriverModel) = "???"
 set_desired_speed!(::LongitudinalDriverModel, v_des::Float64) = model # # do nothing by default
 reset_hidden_state!(model::LongitudinalDriverModel) = model # do nothing by default

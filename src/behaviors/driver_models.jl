@@ -9,7 +9,7 @@ export
     reset_hidden_state!,
     prime_with_history!
 
-abstract DriverModel{DriveAction, ActionContext}
+abstract type DriverModel{DriveAction, ActionContext} end
 
 get_name(::DriverModel) = "???"
 action_type{A,C}(::DriverModel{A, C}) = A

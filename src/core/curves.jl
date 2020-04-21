@@ -13,7 +13,7 @@ Vec.lerp(a::CurvePt, b::CurvePt, t::Float64) = CurvePt(lerp(a.pos, b.pos, t), a.
 
 ############
 
-typealias Curve Vector{CurvePt}
+const Curve = Vector{CurvePt}
 
 """
     get_lerp_time_unclamped(A::VecE2, B::VecE2, Q::VecE2)

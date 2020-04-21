@@ -10,7 +10,7 @@ export
 
         TimLaneChanger
 
-abstract LaneChangeAction <: DriveAction
+abstract type LaneChangeAction <: DriveAction end
 
 """
     LaneChangeChoice
@@ -42,7 +42,7 @@ end
 
 ####################
 
-abstract LaneChangeModel{LaneChangeAction}
+abstract type LaneChangeModel{LaneChangeAction} end
 get_name(::LaneChangeModel) = "???"
 set_desired_speed!(::LaneChangeModel, v_des::Float64) = model # # do nothing by default
 reset_hidden_state!(model::LaneChangeModel) = model # do nothing by default
@@ -51,7 +51,7 @@ Base.rand(model::LaneChangeModel) = error("rand not implemented for model $model
 
 ####################
 
-type TimLaneChanger <: LaneChangeModel
+type TimLaneChanger <: LaneChangeModel{LaneChangeAction}
     dir::Int
     rec::SceneRecord
 

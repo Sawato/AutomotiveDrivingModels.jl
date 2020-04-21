@@ -8,7 +8,7 @@ export
     pull_features!,
     rec_length
 
-abstract AbstractFeatureExtractor
+abstract type AbstractFeatureExtractor end
 rec_length(::AbstractFeatureExtractor) = 1 # length of the SceneRecord for best results
 Base.length(::AbstractFeatureExtractor) = error("Not Impemeneted")
 pull_features!{F<:AbstractFloat}(::AbstractFeatureExtractor, features::Vector{F}, rec::SceneRecord, roadway::Roadway, vehicle_index::Int, pastframe::Int=0) = error("Not Implemented")

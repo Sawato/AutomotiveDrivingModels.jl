@@ -210,7 +210,7 @@ export
     VehicleTargetPointRear,
     get_targetpoint_delta
 
-abstract VehicleTargetPoint
+abstract type VehicleTargetPoint end
 immutable VehicleTargetPointFront <: VehicleTargetPoint end
 get_targetpoint_delta(::VehicleTargetPointFront, veh::Vehicle) = veh.def.length/2*cos(veh.state.posF.ϕ)
 immutable VehicleTargetPointCenter <: VehicleTargetPoint end

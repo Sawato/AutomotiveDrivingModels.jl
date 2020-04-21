@@ -13,7 +13,7 @@ export
 They always return a FeatureValue, which allows the encoding of discrete / continuous / missing values,
 which can also be forced to a Float64.
 """
-abstract AbstractFeature
+abstract type AbstractFeature end
 
 baremodule FeatureState
     # good
