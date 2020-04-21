@@ -13,7 +13,7 @@ function gen_straight_segment(seg_id::Int, nlanes::Int, length::Float64=1000.0;
     boundary_middle::LaneBoundary=LaneBoundary(:broken, :white),
     )
 
-    seg = RoadSegment(seg_id, Array(Lane, nlanes))
+    seg = RoadSegment(seg_id, Array{Lane}(nlanes))
     y = -lane_widths[1]/2
     for i in 1 : nlanes
         y += lane_widths[i]/2
@@ -48,7 +48,7 @@ function gen_bezier_curve(A::VecSE2, B::VecSE2, rA::Float64, rB::Float64, nsampl
     c = d + polar(-rB, B.θ)
 
     s = 0.0
-    curve = Array(CurvePt, nsamples)
+    curve = Array{CurvePt}(nsamples)
     for i in 1 : nsamples
         t = (i-1)/(nsamples-1)
         P = lerp(a,b,c,d,t)

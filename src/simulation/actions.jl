@@ -31,7 +31,7 @@ abstract type DriveAction end
 Base.length{A<:DriveAction}(a::Type{A}) = error("length not defined for DriveAction $a")
 Base.convert{A<:DriveAction}(a::Type{A}, v::Vector{Float64}) = error("convert v → a not implemented for DriveAction $a")
 Base.copy!(v::Vector{Float64}, a::DriveAction) = error("copy! not implemented for DriveAction $a")
-Base.convert{A<:DriveAction}(::Type{Vector{Float64}}, a::A) = copy!(Array(Float64, length(A)), a)
+Base.convert{A<:DriveAction}(::Type{Vector{Float64}}, a::A) = copy!(Array{Float64}(length(A)), a)
 propagate(veh::Vehicle, action::DriveAction, context::ActionContext, roadway::Roadway) = error("propagate not implemented for DriveAction $action and context $context")
 
 immutable AccelTurnrate <: DriveAction

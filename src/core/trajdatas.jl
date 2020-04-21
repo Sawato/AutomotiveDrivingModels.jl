@@ -25,7 +25,7 @@ function Trajdata(trajdata::Trajdata, frame_lo::Int, frame_hi::Int)
         nstates += length(frame)
     end
 
-    states = Array(TrajdataState, nstates)
+    states = Array{TrajdataState}(nstates)
     copy!(states, 1, trajdata.states, trajdata.frames[frame_lo].lo, nstates)
     for s in states
         if !haskey(vehdefs, s.id)

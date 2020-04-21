@@ -5,7 +5,7 @@ export
 
     assign_folds
 
-abstract FoldAssigner
+abstract type FoldAssigner end
 assign_folds(fa::FoldAssigner, nitems::Int, nfolds::Int) = error("get_fold_assignment not implemented for $a")
 
 

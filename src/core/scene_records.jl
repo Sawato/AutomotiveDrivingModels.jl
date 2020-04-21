@@ -4,7 +4,7 @@ type SceneRecord
     nscenes::Int # number of active scenes
 
     function SceneRecord(max_n_scenes::Int, timestep::Float64, max_n_vehicles::Int=500)
-        scenes = Array(Scene, max_n_scenes)
+        scenes = Array{Scene}(max_n_scenes)
         for i in 1 : length(scenes)
             scenes[i] = Scene(max_n_vehicles)
         end
