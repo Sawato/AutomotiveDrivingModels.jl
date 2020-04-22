@@ -8,9 +8,11 @@ let
     scene = Scene()
 
     col = get_first_collision(get!(scene, td, 1))
-    @test col.is_colliding == true
+    println(`col=`)
+    println(col)
     @test col.A == 1
     @test col.B == 2
+    @test col.is_colliding == true
 
     @test get_first_collision(get!(scene, td, 2), CPAMemory()).is_colliding == true
 end
