@@ -8,7 +8,7 @@ let
     scene = Scene()
 
     col = get_first_collision(get!(scene, td, 1))
-    @test col.is_colliding
+    @test col.is_colliding == true
     @test col.A == 1
     @test col.B == 2
 
