@@ -105,12 +105,7 @@ function get_signed_area(pts::Vector{VecE2}, npts::Int = length(pts))
 
     retval / 2
 end
-function get_edge(pts::Vector{VecE2}, i::Int, npts::Int=length(pts))
-    a = pts[i]
-    b = i+1 ≤ npts ? pts[i+1] : pts[1]
-    LineSegment(a,b)
-end
-function get_edge(pts::Vector{VecE2}, i::Int64, npts::Int64=length(pts))
+function get_edge(pts::Array{VecE2,1}, i::Int, npts::Int=length(pts))
     a = pts[i]
     b = i+1 ≤ npts ? pts[i+1] : pts[1]
     LineSegment(a,b)
