@@ -12,7 +12,7 @@ export
     SumSquareJerk,
     EmergentKLDivergence
 
-abstract TraceMetricExtractor
+abstract type TraceMetricExtractor end
 
 ########################################
 #        RootWeightedSquareError       #

@@ -112,7 +112,7 @@ function get_edge(pts::Vector{VecE2}, i::Int, npts::Int=length(pts))
 end
 function get_edge(pts::Array{VecE2,1}, i::Int64)
     a = pts[i]
-    b = i+1 ≤ length(pts) ? pts[i+1] : pts[1]
+    b = i+1 ≤ 1 ? pts[i+1] : pts[1]
     LineSegment(a,b)
 end
 
