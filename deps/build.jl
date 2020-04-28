@@ -1,1 +1,2 @@
-Pkg.clone("https://github.com/Sawato/Vec.jl.git")
+Pkg.clone("https://github.com/sisl/Vec.jl")
+cd(Pkg.dir("Vec")); run(`git checkout -f v0.1.1`)
