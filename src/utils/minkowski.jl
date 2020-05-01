@@ -105,7 +105,7 @@ function get_signed_area(pts::Vector{VecE2}, npts::Int = length(pts))
 
     retval / 2
 end
-function get_edge(pts::Array{VecE2,1}, i::Int, npts::Int=length(pts))
+function get_edge(pts::Array{VecE2,1}, i::Int, npts::Int)  # npts::Int=length(pts)
     a = pts[i]
     b = i+1 ≤ npts ? pts[i+1] : pts[1]
     LineSegment(a,b)
@@ -199,7 +199,7 @@ function ensure_pts_sorted_by_min_polar_angle!(poly::ConvexPolygon, npts::Int=po
     angle_start = Inf
     index_start = -1
     for i in 1 : npts
-        seg = get_edge(poly.pts, i)
+        seg = get_edge(poly.pts, i, poly.npts)
 
         θ = atan2(seg.b.y - seg.a.y, seg.b.x - seg.a.x)
         if θ < 0.0
